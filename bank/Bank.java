@@ -3,10 +3,10 @@ package bank;
 import java.util.Scanner;
 
 public class Bank {
-    // use for taking user input "so" object banaya hai
+
     static int customerId = 1040;
     static int bankId = 1050;
-    static int customerBalance = 1000; // use for customer check balance // ISME ABHI CUSTOMER KI LIMIT SET KI HAI 1000
+    static int customerBalance = 1000; // use for customer check balance. ISME ABHI CUSTOMER KI LIMIT SET KI HAI 1000
     // KI YEH USKA BALANCE HAI
 
     static int bankBalance = customerBalance;// use for bank check balance
@@ -37,16 +37,16 @@ public class Bank {
 
     }
 
-    static public void withdrawn() // is function se customer withdrawn kar sakta hai bank me
+    static public void withdraw() // is function se customer withdraw kar sakta hai bank me
     {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Enter a amount for withdrawn in bank ! ");
+        System.out.println("Enter a amount to withdraw from Bank: ");
         int input = scan.nextInt();
 
         if (input < customerBalance) {
-            System.out.println("Customer Withdrawn the fund = " + input);
+            System.out.println("Customer withdrawed the fund = " + input);
             customerBalance -= input;
             bankBalance -= input;
 
@@ -57,19 +57,16 @@ public class Bank {
     }
 
     public void show() {
-        int buid = 1050;
-        int cuid = 1040;
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a customer id or bank id: ");
         int input = scan.nextInt();
 
-        if (input == cuid || input == buid) {
+        if (input == customerId || input == bankId) {
             int choice;
 
             do {
-                System.out.println(
-                        "                                                        Welcome To Saksham Jain Bank            ");
+                System.out.println(" Welcome To Saksham Jain Bank ");
                 System.out.println("1. Check Bank Balance (Only For Bank Employee). ");
                 System.out.println("2. Check Customer Balance. ");
                 System.out.println("3. Deposit Balance. ");
@@ -88,7 +85,7 @@ public class Bank {
                         Bank.deposit();
                         break;
                     case 4:
-                        Bank.withdrawn();
+                        Bank.withdraw();
                         break;
                     case 5:
                         System.out.println("You have exited the program");
